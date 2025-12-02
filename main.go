@@ -16,6 +16,7 @@ const (
 func main() {
 	puzzles := []puzzle{
 		&Day1{},
+		&Day2{},
 	}
 
 	start := time.Now()
