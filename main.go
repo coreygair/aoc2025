@@ -17,6 +17,7 @@ func main() {
 	puzzles := []puzzle{
 		&Day1{},
 		&Day2{},
+		&Day3{},
 	}
 
 	start := time.Now()
