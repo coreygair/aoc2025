@@ -20,6 +20,7 @@ func main() {
 		&Day3{},
 		&Day4{},
 		&Day5{},
+		&Day6{},
 	}
 
 	start := time.Now()
@@ -54,6 +55,16 @@ func Lines(s string) iter.Seq[string] {
 	return func(yield func(string) bool) {
 		for line := range strings.Lines(s) {
 			if !yield(strings.TrimSpace(line)) {
+				return
+			}
+		}
+	}
+}
+
+func RawLines(s string) iter.Seq[string] {
+	return func(yield func(string) bool) {
+		for line := range strings.Lines(s) {
+			if !yield(line) {
 				return
 			}
 		}
