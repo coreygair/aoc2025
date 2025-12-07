@@ -59,6 +59,19 @@ func (g Grid) All() iter.Seq2[byte, Point] {
 	}
 }
 
+func (g Grid) Find(target byte) (Point, bool) {
+	for y := 0; y < g.rows; y++ {
+		for x := 0; x < g.cols; x++ {
+			b := g.elements[y*g.cols+x]
+			if b == target {
+				return Point{x, y}, true
+			}
+		}
+	}
+
+	return Point{}, false
+}
+
 func (g Grid) FindAll(target byte) iter.Seq[Point] {
 	return func(yield func(Point) bool) {
 		for y := 0; y < g.rows; y++ {
