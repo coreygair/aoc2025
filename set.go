@@ -18,3 +18,9 @@ func (s Set[T]) Insert(t ...T) {
 		s[t] = struct{}{}
 	}
 }
+
+func (s Set[T]) Remove(t ...T) {
+	for _, t := range t {
+		delete(s, t)
+	}
+}
